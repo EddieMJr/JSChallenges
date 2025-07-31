@@ -34,12 +34,32 @@ console.log(sharePizza(21, 20));
 console.log(sharePizza(10, 3));
 
 // Challenge 3: Hard
-/*'use strict';
-function () {
-    function() {
-        
+'use strict';
+function patients(name) {
+    name = "John";
+    function patientInfo() {
+        const PII = {
+            SSN: "123-45-6789",
+            get getName() {
+                return name;
+            },
+            get getSSN() {
+                return this.SSN;
+            }
+        }
+        return PII;
     }
-}*/
+    return patientInfo();
+}
+const patient2 = patients();
+// Output: Undefined
+console.log(patient2.name);
+// Output: Undefined
+console.log(patient2.ssn);
+// Output: John
+console.log(patient2.getName);
+// Output: 123-45-6789
+console.log(patient2.getSSN);
 
 // Challenge 4: Very Hard
-
+'use strict';
