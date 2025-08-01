@@ -63,3 +63,81 @@ console.log(patient2.getSSN);
 
 // Challenge 4: Very Hard
 'use strict';
+// Person Constructor w/ Properties
+class Person{
+    constructor(name, job, age) {
+        this.name = name;
+        this.job = job;
+        this.age = age;
+    }
+    // Exercise Method
+    exercise() {
+        console.log('Running is alright');
+    }
+    // FetchJob Method
+    fetchJob() {
+        console.log(`${this.name} is a ${this.job}`);
+    }
+}
+// Instances of 'Person' with Name, Job & Age
+const person1 = new Person("Harold", "Backend Engineer", 20);
+console.log(person1);
+const person2 = new Person("Eddie", "Coding Apprentice", 21);
+console.log(person2);
+
+// Programmer Constructor w/ Inheretence of Person Constructor
+class Programmer extends Person {
+    constructor(name, job, age, languages) {
+        super(name, job, age);
+        this.languages = languages;
+    }
+    
+    // Default value of true to busy
+    busy = true;
+
+    // Changes the value to false
+    completeTask() {
+        this.busy = false;
+    }
+
+    // Puts the value of true in a box
+    acceptNewTask() {
+        this.busy = true;
+    }
+
+    // Console Logs for each value
+    offerNewTask() {
+        if (this.busy === true) {
+            console.log(`${this.name} can't accept any new tasks right now.`)
+        } else {
+            console.log(`${this.name} would love to take on a new responsibility.`)
+        }
+    }
+
+    // Lists the languages each Programmer has
+    listLanguages() {
+        console.log(this.languages);
+    }
+
+    // Adds a new language to the list of languages each programmer has
+    learnLanguage(language) {
+        this.languages.push(language);
+    }
+}
+
+const c1 = new Programmer("Liana", "DevOps", 35, ["HTML", "C#", "LUA"]);
+const c2 = new Programmer("Edwin", "janitor", 55, ["HTML", "SASS", "Ruby"]);
+const c3 = new Programmer("Manny", "SysOps", 31,["HTML", "CSS", "JS", "R"]);
+c1.learnLanguage("CSS");
+c2.learnLanguage("C++");
+c3.learnLanguage("JAVA");
+console.log(c1.listLanguages());
+console.log(c2.listLanguages());
+console.log(c3.listLanguages());
+console.log(c1);
+console.log(c2);
+console.log(c3);
+person1.exercise();
+person1.fetchJob();
+person2.exercise();
+person2.fetchJob();
